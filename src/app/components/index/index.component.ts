@@ -24,4 +24,14 @@ export class IndexComponent implements OnInit {
     })
   }
 
+  callMe() {
+    this.api.tempApi().subscribe((res: any) => {
+      console.log('response: ', res);
+      this.toast.success('success')
+    }, (err) => {
+      console.log('error: ', err);
+
+    })
+  }
+
 }
