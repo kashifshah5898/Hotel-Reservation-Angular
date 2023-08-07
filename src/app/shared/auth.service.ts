@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
+import { UtilsService } from './utils.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor() { }
+  constructor(private utils: UtilsService) {}
 
   isLoggedIn() {
-    return true
+    return true;
     // try {
-    //   const expireAt = JSON.parse(localStorage.getItem('token') as string);
-    //   if (new Date().getTime() > expireAt?.expireAt || expireAt == null) {
-    //     return false
+    //   const expireAt = this.utils.getLocalStorageData();
+    //   if (
+    //     new Date().getTime() > expireAt?.token?.expireAt ||
+    //     expireAt == null
+    //   ) {
+    //     return false;
     //   } else {
-    //     return true
+    //     return true;
     //   }
     // } catch (error) {
-    //   return false
+    //   return false;
     // }
   }
 }

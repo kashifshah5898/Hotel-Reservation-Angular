@@ -1,4 +1,21 @@
-<router-outlet></router-outlet>
+<div *ngIf="isLoginPage$ | async; else notLogin">
+  <div class="row g-0"><app-navbar></app-navbar></div>
+  <div class="row g-0">
+    <div class="split-screen">
+      <div class="sidebar">
+        <app-sidenav></app-sidenav>
+      </div>
+      <div class="main-router">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <div class="row g-0"><app-footer></app-footer></div>
+</div>
+
+<ng-template #notLogin>
+  <router-outlet></router-outlet>
+</ng-template>
 
 <ngx-alerts></ngx-alerts>
 <ngx-ui-loader></ngx-ui-loader>

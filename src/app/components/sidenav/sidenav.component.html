@@ -1,0 +1,77 @@
+<div class="sideBar" [ngStyle]="{ width: toogle == false ? '80px' : '240px' }">
+  <div class="card">
+    <div class="toogle-menu pointer" (click)="onToogleHandler()">
+      <mat-icon>menu</mat-icon>
+    </div>
+    <div class="toogle-menu1">
+      <h2>Hotel Reservation System</h2>
+    </div>
+    <div class="largeSize">
+      <button
+        [title]="navItems.dashboard.label"
+        class="btn2"
+        [routerLink]="navItems.dashboard.router"
+        [routerLinkActive]="navItems.dashboard.routerActive"
+      >
+        <img
+          [src]="navItems.dashboard.icon"
+          [width]="navItems.dashboard.iconWidth"
+          [height]="navItems.dashboard.iconHeight"
+        />
+        <span [ngClass]="toogle ? '' : 'hidden'"> Dashboard </span>
+      </button>
+
+      <button
+        class="btn2"
+        [title]="navItems.Room.label"
+        [routerLink]="navItems.Room.router"
+        [routerLinkActive]="navItems.Room.routerActive"
+      >
+        <img
+          [src]="navItems.Room.icon"
+          [width]="navItems.Room.iconWidth"
+          [height]="navItems.Room.iconHeight"
+        />
+
+        <span [ngClass]="toogle ? '' : 'hidden'"> Rooms </span>
+      </button>
+
+      <button
+        class="btn2"
+        [title]="navItems.RoomBooking.label"
+        [routerLink]="navItems.RoomBooking.router"
+        [routerLinkActive]="navItems.RoomBooking.routerActive"
+      >
+        <img
+          [src]="navItems.RoomBooking.icon"
+          [width]="navItems.RoomBooking.iconWidth"
+          [height]="navItems.RoomBooking.iconHeight"
+        />
+        <span [ngClass]="toogle ? '' : 'hidden'"> Room Booking</span>
+      </button>
+
+      <button
+        title="Profile"
+        class="btn2"
+        routerLink="/Profile"
+        routerLinkActive="navbar-button-active"
+      >
+        <img
+          src="../../../assets/images/profile-circle-svgrepo-com.svg"
+          width="20"
+          height="20"
+        />
+        <span [ngClass]="toogle ? '' : 'hidden'"> Profile</span>
+      </button>
+
+      <button title="Logout" class="btn2" (click)="logout()">
+        <img
+          src="../../../assets/images/logout-svgrepo-com.svg"
+          width="20"
+          height="20"
+        />
+        <span [ngClass]="toogle ? '' : 'hidden'">Logout</span>
+      </button>
+    </div>
+  </div>
+</div>
