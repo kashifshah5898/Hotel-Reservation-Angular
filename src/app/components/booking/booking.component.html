@@ -1,0 +1,22 @@
+<h2>Available Rooms</h2>
+<div class="row">
+  <div
+    *ngFor="let room of rooms; let i = index"
+    class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+  >
+    <mat-card class="example-card mt-2 mb-2">
+      <img mat-card-image [src]="getImage(i)" alt="Image Not Found" />
+      <mat-card-content>
+        <p>
+          {{ room.additionalInfo }}
+        </p>
+        <p>Room Number: {{ room.number }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="bookRoom(room)" mat-raised-button color="primary">
+          Book Now
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

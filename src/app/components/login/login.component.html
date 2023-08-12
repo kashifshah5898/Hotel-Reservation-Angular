@@ -7,7 +7,7 @@
     class="col-sm-6 d-flex justify-content-center align-items-center flex-column"
   >
     <mat-card class="login-mat-card">
-      <mat-card-title class="login-mat-card-title">
+      <mat-card-title routerLink="/" class="login-mat-card-title pointer">
         <img
           height="70"
           width="250"
@@ -57,6 +57,9 @@
               Password is <strong>required</strong>
             </mat-error>
           </mat-form-field>
+          <div class="d-flex justify-content-end">
+            <p (click)="routeToSignUp()" class="pointer">Create Account?</p>
+          </div>
           <button
             mat-raised-button
             class="button2"

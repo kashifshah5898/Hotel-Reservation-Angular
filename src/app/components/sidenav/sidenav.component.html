@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </div>
     <div class="toogle-menu1">
-      <h2>Hotel Reservation System</h2>
+      <h2>M Hotel</h2>
     </div>
     <div class="largeSize">
       <button
@@ -19,6 +19,22 @@
           [height]="navItems.dashboard.iconHeight"
         />
         <span [ngClass]="toogle ? '' : 'hidden'"> Dashboard </span>
+      </button>
+
+      <button
+        *ngIf="isAdmin()"
+        class="btn2"
+        [title]="navItems.users.label"
+        [routerLink]="navItems.users.router"
+        [routerLinkActive]="navItems.users.routerActive"
+      >
+        <img
+          [src]="navItems.users.icon"
+          [width]="navItems.users.iconWidth"
+          [height]="navItems.users.iconHeight"
+        />
+
+        <span [ngClass]="toogle ? '' : 'hidden'"> Users </span>
       </button>
 
       <button

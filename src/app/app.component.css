@@ -2,6 +2,7 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+  background-color: whitesmoke;
 }
 
 .split-screen {
@@ -18,7 +19,38 @@ body {
 .main-router {
   width: 100%;
   padding: 20px;
-  height: 100vh;
+  /* height: 100vh; */
   /* overflow-y: scroll; */
   overflow-y: none;
+  overflow-x: none;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.fs-14 {
+  font-size: 14px !important;
+}
+
+.mt4 {
+  margin-top: 4%;
+}
+
+@media (max-width: 767px) {
+  .mt4 {
+    margin-top: 15%;
+  }
+}
+
+.example-full-width:hover {
+  opacity: 1;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
 }

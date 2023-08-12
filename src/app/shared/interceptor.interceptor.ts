@@ -17,6 +17,7 @@ export class InterceptorInterceptor implements HttpInterceptor {
   token: any;
   omitCalls = ['auth'];
   skipInterceptor = false;
+  unAuth = ['/', '/Login', '/Sign-Up'];
 
   constructor(
     private route: Router,
@@ -38,35 +39,38 @@ export class InterceptorInterceptor implements HttpInterceptor {
 
     this.token = this.utils.getUserToken();
     if (this.token || this.skipInterceptor) {
-      this.utils.setUser(true);
+      if (this.unAuth.includes(this.route.url)) {
+        this.utils.setUser(false);
+      } else {
+        this.utils.setUser(true);
+      }
       const tokenizedReq = req.clone({
         headers: req.headers.set('Authorization', 'Bearer ' + this.token),
       });
       return next.handle(tokenizedReq).pipe(
         map((event: HttpEvent<any>) => {
-          this.ngxService.stop();
           if (event instanceof HttpResponse) {
             if (event.status === 401) {
               this.utils.userLoggedOut();
-              this.route.navigateByUrl('/login');
+              this.route.navigateByUrl('/Login');
             }
           }
-
+          this.ngxService.stop();
           return event;
         })
       );
     } else {
-      this.ngxService.stop();
-
       const unAuth = ['/'];
       this.ngxService.stop();
       if (unAuth.includes(this.route.url)) {
       } else {
         this.utils.userLoggedOut();
-        this.route.navigateByUrl('/login');
+        this.route.navigateByUrl('/Login');
       }
+      this.ngxService.stop();
     }
 
+    this.ngxService.stop();
     return next.handle(req);
   }
 }

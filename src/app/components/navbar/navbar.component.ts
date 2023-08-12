@@ -13,10 +13,5 @@ export class NavbarComponent implements OnInit {
   constructor(private utils: UtilsService) {}
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav | undefined;
 
-  ngOnInit() {
-    console.log(
-      'this.utils.getLocalStorageData() : ',
-      this.utils.getLocalStorageData()
-    );
-  }
+  ngOnInit() {}
 }

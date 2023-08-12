@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 // import * as CryptoJS from 'crypto-js';
 import * as CryptoJS from 'crypto-ts';
+import * as moment from 'moment';
 import { AlertService } from 'ngx-alerts';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { BehaviorSubject } from 'rxjs';
@@ -10,15 +11,16 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UtilsService {
-  // public login = new BehaviorSubject<boolean>(false);
-  public login = new BehaviorSubject<boolean>(!false);
+  public login = new BehaviorSubject<boolean>(false);
+  // public login = new BehaviorSubject<boolean>(!false);
   public login$ = this.login.asObservable();
   securityKey = 'secret_key_123';
 
   constructor(
     private route: Router,
     private ngxService: NgxUiLoaderService,
-    private toast: AlertService
+    private toast: AlertService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   setUser(login: boolean) {
@@ -44,7 +46,7 @@ export class UtilsService {
 
   userLoggedOut() {
     localStorage.clear();
-    this.route.navigateByUrl('/login');
+    this.route.navigateByUrl('/Login');
   }
 
   catchBlock(error: any) {
@@ -56,5 +58,15 @@ export class UtilsService {
         error?.error?.message ||
         'something went wrong'
     );
+  }
+
+  dateFormat(date: any) {
+    let convertedDate = moment(new Date(date), 'YYYY-MM-DD').format();
+    return convertedDate.split('T')[0];
+  }
+
+  isAdminUser() {
+    const localStorageData = this.getLocalStorageData();
+    return localStorageData.role === 'admin';
   }
 }

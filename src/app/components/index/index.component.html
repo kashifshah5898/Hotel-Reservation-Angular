@@ -1,1 +1,59 @@
-<p>index works!</p>
+<header class="bg-light">
+  <nav class="px-2 navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand ml-2" routerLink="/">M Hotel </a>
+    <button
+      class="navbar-toggler custom-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon bg-light"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav ml-2">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Login">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<carousel
+  style="height: 30rem; width: 100%"
+  [width]="100"
+  [dots]="true"
+  [loop]="true"
+  [autoplay]="true"
+  [images]="images"
+  [cellWidth]="1600"
+>
+</carousel>
+
+<div class="container mt-4">
+  <h1>Book Your Favourite Room</h1>
+  <div class="row">
+    <div
+      *ngFor="let room of rooms; let i = index"
+      class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
+    >
+      <mat-card class="example-card mt-2 mb-2">
+        <img mat-card-image [src]="getImage(i)" alt="Image Not Found" />
+        <mat-card-content>
+          <p>
+            {{ room.additionalInfo }}
+          </p>
+          <p>Room Number: {{ room.number }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="bookRoom(room)" mat-raised-button color="primary">
+            Book Now
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<h2>Room Number : {{ room.number || "" }}</h2>
+<h2 class="mt-2">Room Description : {{ room.additionalInfo || "" }}</h2>
+
+<div class="fullCenter">
+  <mat-card class="">
+    <div class="row">
+      <div class="col-6 d-flex justify-content-center">
+        <mat-card-content>
+          <form
+            [formGroup]="bookRoomForm"
+            (ngSubmit)="submit()"
+            class="example-form"
+          >
+            <div class="mt-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Booked For</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="bookedFor"
+                  placeholder="This Room is booked for Mr:"
+                />
+                <mat-error *ngIf="bookedFor.hasError('required')">
+                  Please Enter Your Name
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="mt-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Addtional Info</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  formControlName="additionalInfo"
+                  placeholder="Enter Customer Information"
+                />
+                <mat-error *ngIf="additionalInfo.hasError('required')">
+                  Required Field
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="mt-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Booking Start Date</mat-label>
+                <input
+                  matInput
+                  formControlName="bookingStart"
+                  [matDatepicker]="picker"
+                />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="bookingStart.hasError('required')"
+                  >Booking Start From
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="mt-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Booking End Date</mat-label>
+                <input
+                  matInput
+                  formControlName="bookingEnd"
+                  [matDatepicker]="picker2"
+                />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker2"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                <mat-error *ngIf="bookingEnd.hasError('required')"
+                  >Booking End From
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <button
+                mat-raised-button
+                class="col-lg-3"
+                [disabled]="!bookRoomForm.valid"
+              >
+                Book Room
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </div>
+      <div class="col-6">
+        <mat-card-title class="fs-14">
+          Book your Favourite Room
+          <br />
+          <img
+            class="img-fluid mt-2"
+            src="https://source.unsplash.com/900x500/?hotelRooms"
+            alt="image not found"
+          />
+        </mat-card-title>
+      </div>
+    </div>
+  </mat-card>
+</div>

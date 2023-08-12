@@ -74,4 +74,11 @@ export class LoginComponent {
       this.toast.danger('form is not valid');
     }
   }
+
+  routeToSignUp() {
+    this.route.navigateByUrl('/Sign-Up');
+    // this.route.navigate(['/Sign-Up'], {
+    //   queryParams: { admin: false },
+    // });
+  }
 }

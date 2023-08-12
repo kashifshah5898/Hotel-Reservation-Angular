@@ -1,0 +1,7 @@
+<div *ngIf="isAdmin; else notLogin">
+  <app-admin-dashobard></app-admin-dashobard>
+</div>
+
+<ng-template #notLogin>
+  <app-user-dashobard></app-user-dashobard>
+</ng-template>

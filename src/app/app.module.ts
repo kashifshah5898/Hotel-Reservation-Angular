@@ -25,7 +25,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { SignupComponent } from './components/signup/signup.component';
+import { MatSelectModule } from '@angular/material/select';
+import { AdminDashobardComponent } from './components/admin-dashobard/admin-dashobard.component';
+import { UserDashobardComponent } from './components/user-dashobard/user-dashobard.component';
+import { DashobardComponent } from './pages/dashobard/dashobard.component';
+import { BookingComponent } from './components/booking/booking.component';
+import { BookingRoomComponent } from './components/booking-room/booking-room.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { UserComponent } from './components/user/user.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -37,7 +54,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NavbarComponent,
     SidenavComponent,
     FooterComponent,
-    DashboardComponent,
+    SignupComponent,
+    AdminDashobardComponent,
+    UserDashobardComponent,
+    DashobardComponent,
+    BookingComponent,
+    BookingRoomComponent,
+    UserComponent,
+    ProfileComponent,
+    UpdatePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +76,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    IvyCarouselModule,
     AlertModule.forRoot({ maxMessages: 5, timeout: 5000 }),
     NgxUiLoaderModule,
     AvatarModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    MatTableModule,
+    MatDialogModule,
   ],
   providers: [
     {

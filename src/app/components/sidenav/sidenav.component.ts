@@ -35,6 +35,14 @@ export class SidenavComponent implements OnInit {
       iconWidth: 20,
       iconHeight: 20,
     },
+    users: {
+      label: 'Users',
+      router: '/Users',
+      routerActive: 'navbar-button-active',
+      icon: 'assets/images/add-plus-square-svgrepo-com.svg',
+      iconWidth: 20,
+      iconHeight: 20,
+    },
   };
 
   constructor(public route: Router, private utils: UtilsService) {}
@@ -51,5 +59,9 @@ export class SidenavComponent implements OnInit {
 
   onToogleHandler(): void {
     this.toogle = !this.toogle;
+  }
+
+  isAdmin() {
+    return this.utils.isAdminUser();
   }
 }

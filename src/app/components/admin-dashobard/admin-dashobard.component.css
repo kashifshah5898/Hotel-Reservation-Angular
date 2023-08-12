@@ -1,0 +1,88 @@
+/* Customize the background color of the dashboard */
+.dashboard {
+  background-color: #f0f0f0;
+}
+
+.dashBoard-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.table .mat-header-cell {
+  font-weight: bold;
+}
+
+/* Define the card styles */
+.card {
+  margin: 20px;
+  width: calc(25% - 40px);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-border-blue {
+  border: 5px solid #3498db;
+}
+
+.card-border-red {
+  border: 5px solid #e74c3c;
+}
+
+.card-border-green {
+  border: 5px solid #2ecc71;
+}
+
+.card-border-purple {
+  border: 5px solid #9b59b6;
+}
+
+/* Define the circle styles */
+.circle {
+  margin: 20px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  background-color: #3498db;
+  border-radius: 50%;
+}
+
+/* Define the data table styles */
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.dashBoard-card {
+  border-radius: 15px;
+  border: 3px solid whitesmoke;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.cardDataColor {
+  color: #4f4dd3;
+}

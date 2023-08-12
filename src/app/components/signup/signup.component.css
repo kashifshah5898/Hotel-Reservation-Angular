@@ -1,0 +1,21 @@
+.signupImage {
+  height: 97vh;
+}
+.login-mat-card {
+  padding: 2.5rem;
+  border-radius: 12px;
+  background: #fefefe 0% 0% no-repeat padding-box;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7),
+    10px 10px 10px rgba(0, 0, 0, 0.2), inset 10px 10px rgba(255, 255, 255, 0.7),
+    inset 10px 10px rgba(0, 0, 0, 0.2); /* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
+  border-radius: 12px;
+  opacity: 1;
+}
+
+.example-full-width:hover {
+  opacity: 1;
+}
+
+.example-full-width {
+  width: 100%;
+}
