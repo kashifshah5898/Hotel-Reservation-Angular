@@ -46,7 +46,7 @@ export class IndexComponent implements OnInit {
     if (this.utils.getUserToken()) {
       this.route.navigateByUrl('/Dashboard');
     } else {
-      this.route.navigateByUrl('/login');
+      this.route.navigateByUrl('/Login');
     }
   }
 

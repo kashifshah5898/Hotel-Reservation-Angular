@@ -8,7 +8,7 @@ import { UtilsService } from 'src/app/shared/utils.service';
   styleUrls: ['./sidenav.component.css'],
 })
 export class SidenavComponent implements OnInit {
-  // myData = this.utils.getUserInfoFromLocalStorage();
+  userData = this.utils.getLocalStorageData();
   toogle: boolean = true;
   navItems = {
     dashboard: {
@@ -19,9 +19,9 @@ export class SidenavComponent implements OnInit {
       iconWidth: 20,
       iconHeight: 20,
     },
-    Room: {
-      label: 'Rooms',
-      router: '/Rooms',
+    myBookings: {
+      label: 'My-Bookings',
+      router: '/My-Bookings',
       routerActive: 'navbar-button-active',
       icon: 'assets/images/american-football-player-svgrepo-com (1).svg',
       iconWidth: 20,
@@ -43,6 +43,14 @@ export class SidenavComponent implements OnInit {
       iconWidth: 20,
       iconHeight: 20,
     },
+    creditCard: {
+      label: 'Credit Card',
+      router: '/Credit-Card',
+      routerActive: 'navbar-button-active',
+      icon: 'assets/images/add-plus-square-svgrepo-com.svg',
+      iconWidth: 20,
+      iconHeight: 20,
+    },
   };
 
   constructor(public route: Router, private utils: UtilsService) {}
@@ -55,6 +63,7 @@ export class SidenavComponent implements OnInit {
 
   logout() {
     this.utils.userLoggedOut();
+    this.utils.setUser(false);
   }
 
   onToogleHandler(): void {

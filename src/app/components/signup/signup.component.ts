@@ -88,7 +88,7 @@ export class SignupComponent implements OnInit {
       (res: any) => {
         if (res.success) {
           this.toast.success(res.msg);
-          this.route.navigateByUrl('/login');
+          this.route.navigateByUrl('/Dashboard');
         } else {
           this.toast.danger(res.msg);
         }

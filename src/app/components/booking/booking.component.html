@@ -1,4 +1,18 @@
-<h2>Available Rooms</h2>
+<div class="row">
+  <div class="col-8 col-lg-8 col-md-8 col-sm-6">
+    <h2>Available Rooms</h2>
+  </div>
+  <div class="col-2 col-lg-2 col-md-2 col-sm-3"></div>
+  <div
+    *ngIf="userData.role == 'admin'"
+    class="col-2 col-lg-2 col-md-2 col-sm-3"
+  >
+    <button mat-raised-button color="primary" (click)="addRoom()">
+      Add Room
+    </button>
+  </div>
+</div>
+
 <div class="row">
   <div
     *ngFor="let room of rooms; let i = index"
@@ -15,6 +29,22 @@
       <mat-card-actions>
         <button (click)="bookRoom(room)" mat-raised-button color="primary">
           Book Now
+        </button>
+        <button
+          *ngIf="userData.role == 'admin'"
+          (click)="updateRoom(room)"
+          mat-raised-button
+          color="primary"
+        >
+          Update Room
+        </button>
+        <button
+          *ngIf="userData.role == 'admin'"
+          (click)="deleteRoom(room)"
+          mat-raised-button
+          color="warn"
+        >
+          Delete Room
         </button>
       </mat-card-actions>
     </mat-card>

@@ -38,18 +38,19 @@
       </button>
 
       <button
+        *ngIf="userData.role == 'user'"
         class="btn2"
-        [title]="navItems.Room.label"
-        [routerLink]="navItems.Room.router"
-        [routerLinkActive]="navItems.Room.routerActive"
+        [title]="navItems.myBookings.label"
+        [routerLink]="navItems.myBookings.router"
+        [routerLinkActive]="navItems.myBookings.routerActive"
       >
         <img
-          [src]="navItems.Room.icon"
-          [width]="navItems.Room.iconWidth"
-          [height]="navItems.Room.iconHeight"
+          [src]="navItems.myBookings.icon"
+          [width]="navItems.myBookings.iconWidth"
+          [height]="navItems.myBookings.iconHeight"
         />
 
-        <span [ngClass]="toogle ? '' : 'hidden'"> Rooms </span>
+        <span [ngClass]="toogle ? '' : 'hidden'"> My Bookings </span>
       </button>
 
       <button
@@ -78,6 +79,21 @@
           height="20"
         />
         <span [ngClass]="toogle ? '' : 'hidden'"> Profile</span>
+      </button>
+
+      <button
+        *ngIf="userData.role == 'user'"
+        class="btn2"
+        [title]="navItems.creditCard"
+        [routerLink]="navItems.creditCard.router"
+        [routerLinkActive]="navItems.creditCard.routerActive"
+      >
+        <img
+          [src]="navItems.creditCard.icon"
+          [width]="navItems.creditCard.iconWidth"
+          [height]="navItems.creditCard.iconHeight"
+        />
+        <span [ngClass]="toogle ? '' : 'hidden'"> Credit Card</span>
       </button>
 
       <button title="Logout" class="btn2" (click)="logout()">

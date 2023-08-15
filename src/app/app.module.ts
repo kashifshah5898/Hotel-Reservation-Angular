@@ -43,6 +43,10 @@ import { MatTableModule } from '@angular/material/table';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RoomsComponent } from './components/rooms/rooms.component';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { AddUpdateRoomComponent } from './components/add-update-room/add-update-room.component';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     UserComponent,
     ProfileComponent,
     UpdatePasswordComponent,
+    RoomsComponent,
+    MyBookingsComponent,
+    AddUpdateRoomComponent,
+    CreditCardComponent,
   ],
   imports: [
     BrowserModule,

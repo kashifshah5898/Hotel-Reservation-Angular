@@ -59,10 +59,11 @@ export class BookingRoomComponent implements OnInit {
     const data = {
       roomNo: this.paramId,
       bookedBy: this.userData.id,
-      bookingStart: '2023-08-21',
-      bookingEnd: '2023-08-22',
-      bookedFor: 'Kashif',
-      additionalInfo: 'No additonal info',
+      bookingStart: this.utils.dateFormat(this.bookRoomForm.value.bookingStart),
+      bookingEnd: this.utils.dateFormat(this.bookRoomForm.value.bookingEnd),
+      bookedFor: this.bookRoomForm.value.bookedFor,
+      additionalInfo:
+        this.bookRoomForm.value.additionalInfo || 'No additonal info',
     };
 
     this.api.bookRoomAPI(data).subscribe(

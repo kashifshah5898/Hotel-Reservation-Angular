@@ -1,0 +1,115 @@
+<h2>My Credit Card Details</h2>
+
+<div class="fullCenter">
+  <mat-card class="">
+    <div class="row">
+      <div class="col-6 d-flex justify-content-center">
+        <div *ngIf="isCreditCard; else noCreditCard">
+          <div class="container">
+            <div class="mt-2">
+              <span class="bold"> Name : </span>{{ myCardDetails.name }}
+            </div>
+            <div class="mt-2">
+              <span class="bold"> Card Number :</span>
+              {{ myCardDetails.cardNo }}
+            </div>
+            <div class="mt-2">
+              <span class="bold"> Cvv : </span>{{ myCardDetails.cvv }}
+            </div>
+            <div class="mt-2">
+              <span class="bold"> Expiry Date :</span>
+              {{ myCardDetails.expirydate }}
+            </div>
+
+            <div class="d-flex justify-content-center col-12 mt-2">
+              <button color="primary" mat-raised-button (click)="updateForm()">
+                Update Card Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noCreditCard>
+          <div class="d-flex justify-content-center">
+            <mat-card-content> Add Credit Card Info </mat-card-content>
+          </div>
+          <form
+            [formGroup]="creditCardForm"
+            (ngSubmit)="addMyCard()"
+            class="example-form mt-4"
+          >
+            <div class="mt-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Card No</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  formControlName="cardNo"
+                  placeholder="Enter your credit card number"
+                />
+                <mat-error *ngIf="cardNo.hasError('required')">
+                  Please Enter Credit Card Number
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="mt-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>CVV</mat-label>
+                <input
+                  type="number"
+                  matInput
+                  formControlName="cvv"
+                  placeholder="Enter CVV number"
+                />
+                <mat-error *ngIf="cvv.hasError('required')">
+                  Required Field
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="mt-2">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Expiry Date</mat-label>
+                <input
+                  matInput
+                  formControlName="expirydate"
+                  [matDatepicker]="picker"
+                />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+
+                <mat-error *ngIf="expirydate.hasError('required')"
+                  >Booking Start From
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="d-flex justify-content-center col-12 mt-2">
+              <button
+                color="primary"
+                mat-raised-button
+                [disabled]="!creditCardForm.valid"
+              >
+                {{ idUpdating ? "Update credit card" : "Add credit card" }}
+              </button>
+            </div>
+          </form>
+        </ng-template>
+      </div>
+      <div class="col-6">
+        <mat-card-title class="fs-14">
+          <img
+            class="img-fluid mt-2"
+            src="https://source.unsplash.com/900x500/?credit-card"
+            alt="image not found"
+          />
+        </mat-card-title>
+      </div>
+    </div>
+  </mat-card>
+</div>

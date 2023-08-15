@@ -10,6 +10,8 @@ import { BookingComponent } from './components/booking/booking.component';
 import { BookingRoomComponent } from './components/booking-room/booking-room.component';
 import { UserComponent } from './components/user/user.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
 
 const routes: Routes = [
   { path: '', component: IndexPageComponent },
@@ -31,6 +33,11 @@ const routes: Routes = [
     canActivate: [AuthguardGuard],
   },
   {
+    path: 'My-Bookings',
+    component: MyBookingsComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
     path: 'Booking-Room/:id',
     component: BookingRoomComponent,
     canActivate: [AuthguardGuard],
@@ -43,6 +50,11 @@ const routes: Routes = [
   {
     path: 'Profile',
     component: ProfileComponent,
+    canActivate: [AuthguardGuard],
+  },
+  {
+    path: 'Credit-Card',
+    component: CreditCardComponent,
     canActivate: [AuthguardGuard],
   },
   { path: '**', component: ErrorPageComponent },
